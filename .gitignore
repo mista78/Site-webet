@@ -2,3 +2,4 @@ vendor/
 .phpintel/
 .settings/
 .vscode/
+App/Class/Conf.php
