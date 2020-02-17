@@ -1,0 +1,198 @@
+// .#{$cards} {
+//   border: 1px solid #eaeaea;
+//   border-radius: 3px;
+//   overflow: hidden;
+//   margin-bottom: $gutter;
+//   & &__image {
+//     height: 200px;
+//   }
+
+//   & &__content {
+//     padding: 2em;
+//   }
+//   & &__footer {
+//     position: relative;
+//   }
+
+//   & .btn-more {
+//     position: absolute;
+//     right: 0;
+//     bottom: 0;
+//     width: 38px;
+//     height: 34px;
+//     font-size: .8em;
+//     background-color: #ededed;
+//     border-radius: 50%;
+//     color: #747474;
+//     line-height: 34px;
+//     text-align: center;
+//     transition: all .15s ease-in;
+//     font-weight: bold;
+//     text-transform: uppercase;
+
+//     &:before {
+//       content: "";
+//       position: absolute;
+//       top: 27px;
+//       right: 1px;
+//       width: 9px;
+//       height: 8px;
+//       background: transparent;
+//       border-width: 0 0 2px 6px;
+//       border-color: #ededed;
+//       border-bottom-left-radius: 22px 19px;
+//       border-style: solid;
+//     }
+//     &:after {
+//       content: "";
+//       position: absolute;
+//       top: 21px;
+//       right: 1px;
+//       width: 5px;
+//       height: 14px;
+//       background: transparent;
+//       border-width: 0 0 2px 3px;
+//       border-color: #ededed;
+//       border-bottom-left-radius: 10px 22px;
+//       border-style: solid;
+//     }
+
+
+//   }
+//   & &__footer time {
+//       font-size: .8em;
+//       color: #bababa;
+//   }
+
+
+//   &.big {
+//     & .#{$cards}__content {
+//       padding: 4em;
+//     }
+//   }
+
+//   @media (max-width: $small) {
+//     &.big {
+//       & .#{$cards}__content {
+//         padding: 2em;
+//       }
+//     }
+//   }
+// }
+
+
+// .#{$cards}.big {
+//   .#{$cards}__image {
+//     height: 490px !important;
+//   }
+// }
+// .#{$cards}__content {
+//   position: relative;
+// }
+
+// .#{$cards}-tag {
+//     color: #fff;
+//     border-radius: 3px;
+//     cursor: pointer;
+//     color: #ff6860;
+//     font-weight: 700;
+// }
+// .#{$cards}__desc {
+//   margin-bottom: 1.5em;
+
+//   & p {
+//     color: #747474;
+//   }
+//   & h3 {
+//     color: #343434;
+//     font-size: 1.5em;
+//     line-height: 1.35;
+//     margin-bottom: 1em;
+//   }
+// }
+// .#{$cards}-tag, .tag-group {
+//     position: relative;
+//     display: inline-block;
+// }
+
+// .#{$cards}__footer .#{$cards}-tag {
+//   color: #3dd07d;
+//   font-size: 14px;
+// }
+// .#{$cards}__image {
+//   background-image: url('/images/img/default.jpg');
+//   position: relative;
+// }
+
+// .#{$cards}__image {
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   background-position: 50%;
+// }
+
+// @media (max-width: $small) {
+//   .#{$cards}.big {
+//     .#{$cards}__image {
+//       height: 200px !important;
+//     }
+//   }
+// }
+
+
+
+// .sidebar-posts {
+//   margin-top: 15px;
+//   margin-bottom: 50px;
+
+//   &:first-child {
+//     margin-top: 0;
+//   }
+
+//   & .group-title {
+//       color: #555;
+//       padding: 8px 0;
+//       margin: 0 8px;
+//       margin-bottom: 15px;
+//       display: -ms-flexbox;
+//       display: flex;
+//       -ms-flex-pack: justify;
+//       justify-content: space-between;
+
+//       & strong {
+//             font-size: 16px;
+//       }
+
+//       & a {
+//         color: #4dd086;
+//         font-weight: 700;
+//         text-transform: uppercase;
+//         font-size: 11px;
+//         padding: 4px 10px;
+//         border-radius: 20px;
+//         border: 1px solid;
+//       }
+//   }
+// }
+
+// .section-header {
+//     text-align: center;
+//     margin: 30px 0;
+
+//     & h2 {
+//       position: relative;
+//       display: inline-block;
+//       padding-bottom: 10px;
+
+//       &:before {
+//         content: "";
+//         position: absolute;
+//         bottom: 0;
+//         left: 50%;
+//         width: 70px;
+//         height: 2px;
+//         background: #3dd07d;
+//         transform: translateX(-50%);
+//         box-shadow: 0px 2px 4px 0px rgba(#3dd07d, 0.7)
+//     }
+//   }
+// }

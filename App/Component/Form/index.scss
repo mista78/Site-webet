@@ -1,0 +1,16 @@
+@import 'Helpers/variables';
+.formWrapper {
+    border: 1px solid #eaeaea;
+    border-top: 2px solid darken($color-white,45%);
+    padding: $gap * 3;
+    background: $color-white;
+    max-width: 980px;
+    margin: 0 auto;
+    & .row {
+        margin-bottom: $gap * 3;
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

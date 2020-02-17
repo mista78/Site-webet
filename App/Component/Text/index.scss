@@ -1,0 +1,8 @@
+@import 'Helpers/variables';
+.Text {
+    text-align: center;
+    & h1 {
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+}

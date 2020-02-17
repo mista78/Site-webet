@@ -1,0 +1,79 @@
+@mixin btn ($type,$val) {
+  .btn-#{$type} {
+        @if ($val == #fff) {
+            color: #222;
+        } @else {
+            color: #fff;
+        }
+            text-transform: capitalize;
+            background-color: $val;
+            -webkit-box-shadow: 0px 9px 11px -5px rgba($val, 0.7);
+            box-shadow: 0px 9px 11px -5px rgba($val, 0.7);
+        
+        &:hover {
+            background-color: lighten($val, 10%);
+        }
+    }
+
+  .btn-outline {
+    &.btn-#{$type} {
+        color: $val;
+        &:hover {
+        background-color: $val;
+          color: #fff;
+        }
+    }
+  }
+}
+
+.nav-up {
+    transform: translateY(-100px);
+}
+
+.nav-down {
+    transform: translateY(0px);
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 16px;
+    margin: 0 10px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border-radius: 18px;
+    transition-property: all;
+    transition-duration: 0.8s;
+}
+
+.btn {
+    font-size: .9em;
+    min-width: 100px;
+}
+
+
+@include btn('success',#3dd07d);
+@include btn('transparent',#fff);
+@include btn('primary',#1da7da);
+@include btn('yellow',#fec503);
+@include btn('danger',#e67e22);
+@include btn('pink',#8e44ad);
+.btn-outline {
+    background: transparent;
+}
+
+
+
+button {
+    border: none !important;
+}

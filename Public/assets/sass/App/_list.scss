@@ -1,0 +1,241 @@
+$php: #8e44ad;
+$html: #f39c12;
+$general: #16a085;
+$edit: #d35400;
+
+.forum , .flash {
+    position: relative;
+    margin: 0;
+    padding: 1em 0;
+    border-left: 3px solid transparent;
+    transition-property: box-shadow;
+    transition-duration: 0.3s;
+    &:hover {
+      border-color: lighten(#1da7da, 25%);
+      background-color: rgba(200,200,200,0.1);
+      box-shadow: 0px 9px 11px -5px rgba(#1da7da, 0.7);
+    }
+    &.php:hover {
+      border-color: lighten($php, 25%);
+      box-shadow: 0px 9px 11px -5px rgba($php, 0.7);
+    }
+    &.general:hover {
+      border-color: lighten($general, 25%);
+      box-shadow: 0px 9px 11px -5px rgba($general, 0.7);
+    }
+    &.edit:hover {
+      border-color: lighten($edit, 25%);
+      box-shadow: 0px 9px 11px -5px rgba($edit, 0.7);
+    }
+}
+.forum {
+  box-shadow: 0px 1px 2px -1px rgba(0,0,0, 0.1);
+}
+
+
+.flash {
+  position: fixed;
+  right: 30px;
+  opacity: 0;
+  z-index: 1000;
+  color: #fff;
+  padding: 0px 15px !important;
+  border-radius: 0px 30px 30px 0px ;
+  border-left:  3px solid;
+  
+  @include prefix(transition, transform 1s);
+  &.show {
+    opacity: 1;
+  @include prefix(transition, transform 1s);
+    @include prefix(transform,translateX(0px));
+  }
+  &.hidden {
+    opacity: 0;
+    @include prefix(transform,translateX(999px));
+  }
+
+  &.success {
+    border-color: lighten(#27ae60, 25%);
+    background-color: rgba(#27ae60,1);
+  }
+
+  &.danger {
+    border-color: lighten(#e74c3c, 25%);
+    background-color: rgba(#e74c3c,1);
+  }
+}
+@media only screen and (min-width: 768px){
+  .forum {
+      padding: 1em 3em 1em 5em;
+  }
+}
+
+.forum__container {
+
+}
+
+.forum__header, .forum__footer , .forum__body {
+  @media (max-width: $small) {
+    padding-left: 10px;
+  }
+}
+
+
+.forum__left {
+  float: left;
+  margin-left: -45px;
+}
+
+.forum__title h4 {
+    font-size: 16px;
+    color: #212121;
+    word-break: break-word;
+}
+
+.forum__category {
+    color: #fff;
+    text-align: center;
+    padding: 2px 6px;
+    border-radius: 50px;
+    background: #1da7da;
+    font-size: 10px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    box-shadow: 0px 9px 11px -5px rgba(#1da7da, 0.7);
+    &.php {
+      background: $php;
+      // color: $php;
+      box-shadow: 0px 9px 11px -5px rgba($php, 0.7);
+    }
+    &.general {
+      background: $general;
+      // color: $general;
+      box-shadow: 0px 9px 11px -5px rgba($general, 0.7);
+    }
+
+    &.edit {
+      background: $edit;
+      // color: $edit;
+      box-shadow: 0px 9px 11px -5px rgba($edit, 0.7);
+    }
+}
+
+
+
+.forum__category:after {
+    content: attr(data-type);
+}
+
+
+.forum__body {
+    word-wrap: break-word;
+    font-size: 1.1em;
+}
+.forum__category:empty {
+    display: inline-block;
+}
+
+.forum__author, .user__avatar {
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+.forum__author {
+    display: none;
+    width: 35px;
+    height: 35px;
+}
+@media (min-width: $small) {
+  .forum__author {
+      display: block;
+  }
+}
+.forum__footer {
+    color: #bababa;
+    font-size: 13px;
+    padding-top: .3em;
+}
+.forum__footer-item {
+    display: inline-block;
+    margin-right: 2px;
+}
+
+.hidden-xs  {
+  display: none;
+}
+
+.categories .list-group-item:before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    background-color: #1da7da;
+}
+
+.categories .category__name {
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 16px;
+    vertical-align: middle;
+}
+.category__name.active {
+    font-weight: 700;
+}
+.category__name {
+    padding: 0;
+}
+
+@media only screen and (min-width: 768px){
+  .forum__author {
+      display: block;
+  }
+
+  .forum__category {
+      float: right;
+  }
+
+  .hidden-xs  {
+    display: block;
+  }
+}
+
+
+.list-group-item{
+  &.php:before {
+    background-color: $php;
+  }
+
+  &.general:before {
+    background-color: $general;
+  }
+
+  &.edit:before {
+    background-color: $edit;
+  }
+}
+
+footer , .footer {
+  background-color: #fff;
+  border-top: 1px solid #ededed;
+  padding: 50px;
+  z-index: 2;
+  position: relative;
+  color: #484848;
+  text-align: center;
+
+  & h3 {
+    margin-bottom: 30px;
+    margin-top: 0;
+    font-size: 28px;
+    font-weight: 300;
+    opacity: .2;
+  }
+
+  & p {
+    opacity: .5;
+    line-height: 1.7;
+  }
+}

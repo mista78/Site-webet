@@ -1,0 +1,196 @@
+<?php 
+
+
+
+$post = FindOne("posts",["cond" => ['online' => -1]]);
+// $Debug($post);
+$id = null;
+if($id === null) {
+    if(!empty($post)) {
+        $id = $post['id'];
+    } else {
+        [$id] = QuerySave("posts", ['online' => -1]);
+    }
+}
+
+$id = $id;
+$local = "en";
+
+if(isset($_POST["name"])) {
+    [$post_id,$req] = QuerySave("posts", $_POST);
+    $Debug($req);
+} else {
+    $_POST = FindOne("posts",["cond" => ["id" => $id]]);
+}
+$topic = 'Salut ${se} ! J\'ai trouvé une réponse à ta question !'; 
+
+
+$lang = [
+    'en' => "title=How to learn;content=un peut de content en",
+    "fr" => "title=Comment Apprendre;content=un peut de content fr"
+];
+
+$html = '${title} ${content}'; // requette post
+// Debug(i18n($html));
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+CREATE DATABASE IF NOT EXISTS `devcms` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `devcms`;
+
+CREATE TABLE IF NOT EXISTS `posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+ALTER TABLE `posts` ADD COLUMN `lorem` VARCHAR(50) NULL DEFAULT NULL ;
+
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+
+
+// if(!in_array($_GET['lang'], $table)) { $url = "/fr" . $_SERVER['REQUEST_URI'];  header("Location:".$url );}
+// $local = requireOnce(APP . "Lang/lang.". $_GET['lang'] .".php", false);
+// // $test = ["test" => "lol"]; 
+
+// // $pal = palette(APP . "fluent_colors_thumb.png", 3,6);
+
+// // // $test = array_push($local,$test);
+// // function rgb ($array = [],$id = 0, $range = 0) {
+// //     $array = $array[$range][$id];
+// //     return  implode(',',$array) ;
+// // }
+
+
+$data = [
+     'host' => "localhost",
+     'base' => "fram",
+     'user' => "root",
+     'pass' => ""
+ ];
+connect();
+$table = [];
+$data = glob(APP . "Lang/*");
+foreach ($data as  $value) {
+	$t = explode('.', $value);
+    $table[] = $t[1];
+    
+}
+
+$post = new Post();
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet"href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/default.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <link rel="stylesheet" href="/<?= CompileCss("assets/sass/") ?>">
+    <style>
+        #admin {
+            display: grid;
+            width: 100%;
+            height: 100vh;
+            grid-template-areas:    "head head"
+                                    "sidebar  main";
+            grid-template-rows: 50px 1fr;
+            grid-template-columns: 250px 1fr;
+        }
+
+        #admin > .header {
+            grid-area: head;
+            background-color: #fff;
+            border-bottom:2px solid rgba(0,0,0,0.1);
+        }
+
+        #admin > .sidebar {
+            grid-area: sidebar;
+            background-color: #fff;
+        }
+
+        #admin > .main {
+            padding: 24px;
+            grid-area: main;
+            background-color: #efefef;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+</head>
+    <body>
+        <section id="admin">
+            <div class="header"><p>header</p></div>
+            <div class="sidebar"><p>sidebar</p></div>
+            <div class="main">
+            <form action="" method="POST">
+                <div class="wrapper">
+                <?= input('test', 'n°devis') ?>
+                <?= submit('test', 'n°devis') ?>
+                </div>
+                <!-- <div class="wrapper">
+                    <h2 class="m-0">
+                        <?= i18n('${info_general}', $local) ?>
+                    </h2>
+                    <hr class="m-0 mt-1 mb-2">
+                    <div class="row">
+                        <div class="col-md-9"><?= select('typedemande', 'type de demande', ['options' => ['PEC','Estimation']]) ?></div>
+                        <div class="col-md-3"><?= select('modenvoi', "mode d'envoi", ['options' => ['Email','Site internet','Fax','Courrier']]) ?></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6"><?= input('patient', 'Patient') ?></div>
+                        <div class="col-md-3"><?= input('devis', 'n°devis') ?></div>
+                        <div class="col-md-3"><?= select('mutuel_id', 'mutuelle', ['options' => FindList(['table' => 'mutuelle'])]) ?></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6"><?= input('datepost', "date d'envoie devis", ['type' => "date"]) ?></div>
+                        <div class="col-md-3"><?= select('secteur_id', 'centre', ['options' => FindList(['table' => 'secteur'])]) ?></div>
+                        <div class="col-md-3"><?= select('praticien_id', 'praticien', ['options' => FindList(['table' => 'praticien'])]) ?></div>
+                    </div>
+
+                    <h2 class="m-0">
+                        Mutelle & prix
+                    </h2>
+                    <hr class="m-0 mt-1 mb-2">
+                    <div class="row">
+                        <div class="col-md-6"><?= input('price', 'prix global') ?></div>
+                        <div class="col-md-3"><?= input('pss', 'part s.s') ?></div>
+                        <div class="col-md-3"><?= select('statmutuel', 'statut mutuelle', ['options' => ['Accepté','Refusé','En-cours']]) ?></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6"><?= input('pec', 'Montant pec') ?></div>
+                        <div class="col-md-3"><?= input('aif', 'Aide financiere') ?></div>
+                        <div class="col-md-3"><?= select('mtrmut', 'Motif refus Mututelle', ['options' => ['Absence de date','Erreur conventionnement','Erreur de saisie','Hors contrat']]) ?></div>
+                    </div>
+                    <h2 class="m-0">
+                        Status patient & date
+                    </h2>
+                    <hr class="m-0 mt-1 mb-2">
+                    <div class="row">
+                        <div class="col-md-9"><?= input('callpt', 'Appel Patient', ['type' => "date"]) ?></div>
+                        <div class="col-md-3"><?= select('statuspt', 'Statut Patient', ['options' => ['Attente retour patient','Refus','Sans suite','Accord - Reglt 1 fois', 'Accord - Reglt 2 fois','Accord - Reglt 3 fois','Accord - Reglt 4 fois','Accord - PP nulle','Messagerie', 'Traitement centre']]) ?></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-9"><?= input('rdv', 'Prise de RDV', ['type' => "date"]) ?></div>
+                        <div class="col-md-3"><?= select('mrpt', 'Motif refus Patient', ['options' => ['Avis négatif dentiste','Modalités de reglt','Montant du RAC','Pas de PEC','Revoir dentiste']]) ?></div>
+                    </div>
+                    <?= textarea('comment', 'commentaire') ?>
+                </div> -->
+            </form>
+            </div>
+        </section>
+    </body>
+</html>
