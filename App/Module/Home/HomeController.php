@@ -6,15 +6,16 @@
          * @Route('', home/index)
          */
         public function index() {
-            $data = $this->Blog->find(["order" => "id DESC"]);
-            $this->set("posts",$data);
-        
+
+            // $data = $this->Blog->find(["order" => "id DESC"]);
+            // $this->set("posts",$data);
         }
         
         /**
          * @Route(posts, cockpit/home/index)
          */
         public function admin_index($id = null) {
+            
             if($this->request->data) {
                 $this->Blog->name = $this->request->data->name;
                 $this->Blog->slug = $this->request->data->slug;
@@ -25,5 +26,7 @@
                 $this->Blog->save();
                 $this->redirect("");
             }
+            
         }
+
     }

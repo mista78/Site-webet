@@ -7,8 +7,7 @@
     const APP 			= ROOT . "App" . DS;
     const WEBROOT		= '/';
     require_once APP . "Func/Loader.php";
-    require_once ROOT . 'vendor/autoload.php';
-    Loader(['Func', 'Class','Core', 'Module']);
 
+    Loader(['Func', 'Class','Core', 'Module']);
     new Dispatcher();
     

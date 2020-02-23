@@ -3,3 +3,4 @@ vendor/
 .settings/
 .vscode/
 App/Class/Conf.php
+Public/phpmyadmin

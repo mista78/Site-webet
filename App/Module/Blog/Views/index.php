@@ -8,10 +8,7 @@
         	"container" => true,
         	"item" => [
         		[
-        			"type" => "carousel"
-        		],
-        		[
-        			"type" => "tabs"
+        			"type" => "video"
         		]
         	]	
         ]
