@@ -17,5 +17,4 @@
         event(nav);
         section.forEach(e => event(e,true))
     }
-    
 })();

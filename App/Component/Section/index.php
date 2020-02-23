@@ -7,6 +7,7 @@
 			<?= (isset($valuew['type']) && $valuew['type'] === "posthero") ? getWidjet("posthero",$valuew) : null ?>
 			<?= (isset($valuew['type']) && $valuew['type'] === "text") ? getWidjet("text",$valuew) : null ?>
 			<?= (isset($valuew['type']) && $valuew['type'] === "item") ? getWidjet("item",$valuew) : null ?>
+			<?= (isset($valuew['type']) && $valuew['type'] === "video") ? getWidjet("video",$valuew) : null ?>
 			<?= (isset($valuew['type']) && $valuew['type'] === "form") ? getWidjet("form",$valuew) : null ?>
 			<?= (isset($valuew['type']) && $valuew['type'] === "tabs") ? getWidjet("tabs",$valuew) : null ?>
 			<?= (isset($valuew['type']) && $valuew['type'] === "carousel") ? getWidjet("carousel",$valuew) : null ?>

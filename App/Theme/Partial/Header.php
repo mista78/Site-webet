@@ -3,8 +3,8 @@
 	return [
         "item" => [
             [
-                "name" => "home",
-                "url" => "/",
+                "name" => '${menu_home}',
+                "url" => " ",
                // "section" => [
                //      "item" =>  [
                //          [
@@ -41,7 +41,7 @@
                //  ]
             ],
             [
-                "name" => "Actualité",
+                "name" => '${menu_pronos}',
                 "url" => "blog",
                // "section" => [
                //      "item" =>  [
@@ -53,7 +53,7 @@
                //  ]
             ],
             [
-                "name" => "Forum",
+                "name" => '${menu_chall}',
                 "url" => "blog",
                // "section" => [
                //      "item" =>  [
@@ -63,6 +63,15 @@
                //          ]
                //      ]
                //  ]
-            ]
+            ],
+            [
+                "name" => '${menu_chere}'
+            ],
+            [
+                "name" => '${menu_shop}'
+            ],
+            [
+                "name" => '${menu_about}'
+            ],
         ]           
     ];

@@ -9,17 +9,20 @@
         public $lang    = "fr";
 
         public function __construct() {
-            
             $table = [];
             $data = glob(APP . "Lang/*");
             foreach ($data as  $value) {
                 $t = explode('.', $value);
                 $table[] = $t[1];
-                
             }
-            if(!in_array($_GET['lang'], $table)) { $url = "/". $this->lang . $_SERVER['REQUEST_URI'];  header("Location:".$url );}
-            $_SESSION['local'] = $_GET['lang'];
-            $this->url = isset($_GET['url']) ? $_GET['url'] : "/";
+            $url = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : "/";
+            $url = trim($url, "/");
+            $url = explode("/", $url);
+            $lang= $this->lang($url);
+            $this->lang = $lang;
+            $removeFirst= array_shift($url);
+            if(!in_array($lang, $table)) { $url = "/". $this->lang . $_SERVER['REQUEST_URI'];  header("Location:".$url );}
+            $this->url = isset($url[0]) ? implode("/",$url) : "";
             if(!empty($_POST)) {
                 $this->data = new stdClass();
                 foreach($_POST as $k=>$v) {
@@ -27,6 +30,18 @@
                 }
             }
 
+        }
+
+        public function lang($url) {
+            $lang = null;
+            if(isset($_SESSION['local']) && $_SESSION['local'] === $url[0]) {
+                $lang = $_SESSION['local'];
+            } else {
+                $lang = (strlen($url[0]) <= 2) ? array_shift($url) : "fr";
+                
+                $_SESSION['local'] = $lang;
+            }
+            return $lang;
         }
 
     }
