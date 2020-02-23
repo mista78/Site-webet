@@ -18,7 +18,7 @@
             $url = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : "/";
             $url = trim($url, "/");
             $url = explode("/", $url);
-            $lang= $this->lang($url);
+            $lang= $this->lang($url,$table);
             $this->lang = $lang;
             $removeFirst= array_shift($url);
             if(!in_array($lang, $table)) { $url = "/". $this->lang . $_SERVER['REQUEST_URI'];  header("Location:".$url );}
@@ -32,13 +32,12 @@
 
         }
 
-        public function lang($url) {
+        public function lang($url,$table) {
             $lang = null;
             if(isset($_SESSION['local']) && $_SESSION['local'] === $url[0]) {
                 $lang = $_SESSION['local'];
             } else {
-                $lang = (strlen($url[0]) <= 2) ? array_shift($url) : "fr";
-                
+                $lang = (strlen($url[0]) <= 2 && in_array($url[0],$table)) ? array_shift($url) : "fr";
                 $_SESSION['local'] = $lang;
             }
             return $lang;
