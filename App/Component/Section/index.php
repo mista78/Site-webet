@@ -3,6 +3,7 @@
 		<?php foreach($item as $keyw => $valuew): ?>
 		<div class="flex-bloc <?= isset($valuew['class']) ? implode(" ", $valuew['class']) : null  ?>">
 			<?php //Debug($valuew) ?>
+			<?= (isset($valuew['type']) && $valuew['type'] === "generateprono") ? getWidjet("generateprono",$valuew) : null ?>
 			<?= (isset($valuew['type']) && $valuew['type'] === "fullback") ? getWidjet("fullback",$valuew) : null ?>
 			<?= (isset($valuew['type']) && $valuew['type'] === "posthero") ? getWidjet("posthero",$valuew) : null ?>
 			<?= (isset($valuew['type']) && $valuew['type'] === "text") ? getWidjet("text",$valuew) : null ?>

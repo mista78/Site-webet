@@ -20,9 +20,12 @@ class Controller{
         $initRoute = glob(APP . "Module/*");
         // $initRoute = str_replace(APP ."Module/", "", $initRoute);
         foreach($initRoute as $value) {
-            $dirModels = $value . DS . "Model/";
-            $initModels = glob($dirModels . "*");
-            $initModels = str_replace(".php", "", str_replace($dirModels, "", $initModels));
+			$dirModels = $value . DS . "Model/";
+			
+			$initModels = glob($dirModels . "*");
+			
+			//$initModels = str_replace(".php", "", str_replace($dirModels, "", $initModels));
+			
             if(!empty($initModels)) {
                 foreach($initModels as $value) {
                     $this->loadModel($value);
@@ -72,18 +75,21 @@ class Controller{
 	/**
 	* Permet de charger un model
 	**/
+	
 	function loadModel($name){
-		if(!isset($this->$name)){
-			$file = $name; 
-			require_once(APP . "Module" . DS .  $file . DS . "Model" . DS .  $file .'.php');
-			$this->$name = new $file();
+		$initModels = explode("/",str_replace(".php", "", str_replace(APP . "Module/", "", $name)));
+		
+		$file = $initModels[2];
+		if(!isset($this->$file)){
+			 
+			require_once($name);
+			$this->$file  = new $file();
 			if(isset($this->Form)){
-				$this->$name->Form = $this->Form;  
+				$this->$file->Form = $this->Form;  
 			}
 		}
 
 	}
-
 	/**
 	* Permet de gérer les erreurs 404
 	**/

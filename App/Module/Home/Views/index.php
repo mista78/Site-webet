@@ -9,6 +9,38 @@
             "container" => true,
             "item" => [
                 [
+                    "form" => [
+                        "form" => [
+                            [
+                                [
+                                    "class" => ["col-md-8"],
+                                    "type" => "select",
+                                    "name" => "id_category",
+                                    "label" => "Cotes"
+                                ],
+                                [
+                                    "class" => ["col-md-8"],
+                                    "type" => "select",
+                                    "name" => "id_category",
+                                    "label" => "Sports"
+                                ],
+                                [
+                                    "class" => ["col-md-8"],
+                                    "type" => "select",
+                                    "name" => "id_category",
+                                    "label" => "Nombre de pronostics"
+                                ]
+                            ],
+                        ]
+                    ],
+                    "type" => "generateprono"
+                ]
+            ]   
+        ],
+        [
+            "container" => true,
+            "item" => [
+                [
                     "type" => "posthero",
                     "text" => [
                         "title" => "News"
