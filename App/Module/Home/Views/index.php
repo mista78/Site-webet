@@ -3,7 +3,6 @@
 
     $layouts = [];
     $layouts["header"] = [];
-
     $layouts["content"] = [
         [
             "container" => true,
@@ -11,10 +10,23 @@
                 [
                     "type" => "posthero",
                     "text" => [
-                        "title" => "News"
+                        "title" => "Actualité Sport Rmc"
                     ],
-                    "limit" => 5,
-                    "data" => $this->Blog->find(["order" => "id DESC"])
+                    "limit" => 6,
+                    "data" => $rmc["channel"]["item"]
+                ]
+            ]
+        ],
+        [
+            "container" => true,
+            "item" => [
+                [
+                    "type" => "posthero",
+                    "text" => [
+                        "title" => "Actualité Sport l'Equipe"
+                    ],
+                    "limit" => 6,
+                    "data" => $equipe["channel"]["item"]
                 ]
             ]
         ],

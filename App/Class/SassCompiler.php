@@ -17,6 +17,7 @@
             array_map('unlink', glob($css_folder . "*.css"));
             foreach ($filelist as $file_path) {
                 $file_path_elements = pathinfo($file_path);
+                
                 $file_dir = $file_path_elements["dirname"];
                 $file_name = $file_path_elements['filename'];
                 $string_sass = file_get_contents($file_dir . DS . $file_name . ".scss");

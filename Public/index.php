@@ -7,7 +7,6 @@
     const APP 			= ROOT . "App" . DS;
     const WEBROOT		= '/';
     require_once APP . "Func/Loader.php";
-
     Loader(['Func', 'Class','Core', 'Module']);
     new Dispatcher();
     
