@@ -77,11 +77,9 @@ class Controller{
 	**/
 	
 	function loadModel($name){
-		$initModels = explode("/",str_replace(".php", "", str_replace(APP . "Module/", "", $name)));
-		
+		$initModels = explode("/",str_replace(".php", "", str_replace(str_replace("\\", "/",APP) . "Module/", "", str_replace("\\", "/",$name))));
 		$file = $initModels[2];
 		if(!isset($this->$file)){
-			 
 			require_once($name);
 			$this->$file  = new $file();
 			if(isset($this->Form)){

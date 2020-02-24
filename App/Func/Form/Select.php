@@ -3,6 +3,7 @@
 
 function select($name, $label = null, $options = []) {
     $attr = attribute($options, ['surrond','options']);
+    $options["options"] = isset($options["options"]) ? $options["options"] : [];
     $label = label($label);
     $html = "<select name='$name' $attr>";
     $html .= "<option value=''> </option>";
