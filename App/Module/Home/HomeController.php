@@ -6,9 +6,14 @@
          * @Route('', home/index)
          */
         public function index() {
-
+            // $test = Readrss("http://feeds.feedburner.com/SoFoot");
+            $equipe = Readrss("https://www6.lequipe.fr/rss/actu_rss.xml");
+            // $test = Readrss("https://www.sports.fr/feed");
+            $rmc = Readrss("https://rmcsport.bfmtv.com/rss/info/flux-rss/flux-toutes-les-actualites/");
             // $data = $this->Blog->find(["order" => "id DESC"]);
-            // $this->set("posts",$data);
+            // Debug($test);
+            $this->set("rmc",$rmc);
+            $this->set("equipe",$equipe);
         }
         
         /**
