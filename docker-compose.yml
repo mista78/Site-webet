@@ -6,7 +6,7 @@ services:
         ports:
             - "80:80"
         volumes:
-            - ~/www:/Users/halgo/Documents/Site-Prono/App/public #iici le bail faut look la doc
+            - ./:/var/www/html
         links:
             - db:db
     db:
