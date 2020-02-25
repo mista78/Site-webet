@@ -1,60 +1,85 @@
-version: '3'
+version: '2'
+
 services:
+    web:
+        image: lavoweb/php-7.1
+        ports:
+            - "80:80"
+        volumes:
+            - ./:/var/www/html
+        links:
+            - db:db
     db:
-      image: mysql:5
-      ports:
-        - "3307:3306"
-      environment:
-        MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-        MYSQL_USER: 'root'
-      volumes:
-        - /home/gponty/docker/data/mysqlSf:/var/lib/mysql
-
-    # maildev:
-    #     image: djfarrelly/maildev
-    #     ports:
-    #       - "8002:80"
-
-    phpmyadmin:
+        image: mysql:5.5
+        volumes:
+            - ~/mysql:/var/lib/mysql
+        ports:
+            - "3306:3306"
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+    myadmin:
         image: phpmyadmin/phpmyadmin
         ports:
             - "8080:80"
-        depends_on:
-            - db
-        environment:
-          PMA_HOST: db
-
-    php720:
-        build: ./docker/php72
-        ports:
-          - "9072:80"
-        volumes:
-            - .docker//vhosts:/etc/apache2/sites-enabled
-            - /home/gponty/docker/www:/var/www
-
-# version: "3"
-
+        links:
+            - db:db
+# version: '3'
 # services:
-#   db:
-#     image: mysql:5.7
-#     environment:
-#       MYSQL_ROOT_PASSWORD: my_secret_pw_shh
-#       MYSQL_DATABASE: test_db
-#       MYSQL_USER: devuser
-#       MYSQL_PASSWORD: devpass
-#     ports:
-#       - "9906:3306"
-#   web:
-#     image: php:7.2.2-apache
-#     container_name: php_web
-#     depends_on:
-#       - db
-#     volumes:
-#       - ./:/var/www/html/
-#     ports:
-#       - "8100:80"
-#     command: 
-#       - a2enmod rewrite
-#     stdin_open: true
-#     tty: true
+#     db:
+#       image: mysql:5
+#       ports:
+#         - "3307:3306"
+#       environment:
+#         MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+#         MYSQL_USER: 'root'
+#       volumes:
+#         - /home/gponty/docker/data/mysqlSf:/var/lib/mysql
+
+#     # maildev:
+#     #     image: djfarrelly/maildev
+#     #     ports:
+#     #       - "8002:80"
+
+#     phpmyadmin:
+#         image: phpmyadmin/phpmyadmin
+#         ports:
+#             - "8080:80"
+#         depends_on:
+#             - db
+#         environment:
+#           PMA_HOST: db
+
+#     php720:
+#         build: ./docker/php72
+#         ports:
+#           - "9072:80"
+#         volumes:
+#             - .docker//vhosts:/etc/apache2/sites-enabled
+#             - /home/gponty/docker/www:/var/www
+
+# # version: "3"
+
+# # services:
+# #   db:
+# #     image: mysql:5.7
+# #     environment:
+# #       MYSQL_ROOT_PASSWORD: my_secret_pw_shh
+# #       MYSQL_DATABASE: test_db
+# #       MYSQL_USER: devuser
+# #       MYSQL_PASSWORD: devpass
+# #     ports:
+# #       - "9906:3306"
+# #   web:
+# #     image: php:7.2.2-apache
+# #     container_name: php_web
+# #     depends_on:
+# #       - db
+# #     volumes:
+# #       - ./:/var/www/html/
+# #     ports:
+# #       - "8100:80"
+# #     command: 
+# #       - a2enmod rewrite
+# #     stdin_open: true
+# #     tty: true
 
