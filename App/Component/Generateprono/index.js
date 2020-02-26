@@ -4,14 +4,14 @@
     let getPari = url + "sports/"+ key + "&sport=soccer_epl&region=uk&mkt=h2h";
     let getSport = url + "odds/" + key;
 
-    const _ = (v) =>  {document.querySelector(v);}
+    const _ = (v) => document.querySelector(v);
 
     const btn = _('button')
 
-    console.log(btn)
-})()
+    btn.querySelector('click', ajax())
+})();
 
-console.log("fjiefjrifj")
+
 //https://api.the-odds-api.com/v3/odds/?apiKey=YOUR_API_KEY&sport=soccer_epl&region=uk&mkt=h2h 
 
 //https://api.the-odds-api.com/v3/sports/?apiKey=YOUR_API_KEY
