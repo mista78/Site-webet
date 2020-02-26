@@ -8,7 +8,9 @@
 
     const btn = _('button')
 
-    btn.querySelector('click', ajax())
+    //btn.querySelector('click', ajax())
+
+
 })();
 
 
