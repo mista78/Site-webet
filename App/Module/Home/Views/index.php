@@ -4,38 +4,43 @@
     $layouts = [];
     $layouts["header"] = [];
     $layouts["content"] = [
-        // [
-        //     "container" => true,
-        //     "item" => [
-        //         [
-        //             "form" => [
-        //                 "form" => [
-        //                     [
-        //                         [
-        //                             "class" => ["col-md-8"],
-        //                             "type" => "select",
-        //                             "name" => "id_category",
-        //                             "label" => "Cotes"
-        //                         ],
-        //                         [
-        //                             "class" => ["col-md-8"],
-        //                             "type" => "select",
-        //                             "name" => "id_category",
-        //                             "label" => "Sports"
-        //                         ],
-        //                         [
-        //                             "class" => ["col-md-8"],
-        //                             "type" => "select",
-        //                             "name" => "id_category",
-        //                             "label" => "Nombre de pronostics"
-        //                         ]
-        //                     ],
-        //                 ]
-        //             ],
-        //             "type" => "generateprono"
-        //         ]
-        //     ]   
-        // ],
+        [
+            "container" => true,
+            "item" => [
+                [
+                    "form" => [
+                        "form" => [
+                            [
+                                [
+
+                                    "type" => "select",
+                                    "name" => "id_category",
+                                    "label" => "Cotes"
+                                ]
+                            ],
+                            [
+                                [
+
+                                    "type" => "select",
+                                    "name" => "id_category",
+                                    "label" => "Cotes"
+                                ]
+                            ],
+                            [
+                                [
+
+                                    "type" => "select",
+                                    "name" => "id_category",
+                                    "label" => "Cotes"
+                                ]
+                            ],
+                        ]
+                    ],
+                    
+                    "type" => "generateprono"
+                ]
+            ]   
+        ],
         [
             "container" => true,
             "item" => [
@@ -46,8 +51,8 @@
                     ],
                     "limit" => 6,
                     "data" => $rmc["channel"]["item"]
-                ]
-            ]
+                ],
+            ],
         ],
         [
             "container" => true,
