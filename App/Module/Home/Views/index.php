@@ -46,8 +46,8 @@
                     ],
                     "limit" => 6,
                     "data" => $rmc["channel"]["item"]
-                ]
-            ]
+                ],
+            ],
         ],
         [
             "container" => true,
