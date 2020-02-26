@@ -21,7 +21,6 @@
             $lang= $this->lang($url,$table);
             $this->lang = $lang;
             $removeFirst= array_shift($url);
-            if(!in_array($lang, $table)) { $url = "/". $this->lang . $_SERVER['REQUEST_URI'];  header("Location:".$url );}
             $this->url = isset($url[0]) ? implode("/",$url) : "";
             if(!empty($_POST)) {
                 $this->data = new stdClass();
@@ -37,8 +36,12 @@
             if(isset($_SESSION['local']) && $_SESSION['local'] === $url[0]) {
                 $lang = $_SESSION['local'];
             } else {
-                $lang = (strlen($url[0]) <= 2 && in_array($url[0],$table)) ? array_shift($url) : "fr";
+                $lang = (strlen($url[0]) <= 2 && in_array($url[0],$table)) ? $url[0] : "fr";
+                $remove = array_shift($url);
                 $_SESSION['local'] = $lang;
+                $url = "/". $lang . "/" . implode("/",$url);
+                header("Location:".$url );
+                die();
             }
             return $lang;
         }
