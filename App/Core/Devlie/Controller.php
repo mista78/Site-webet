@@ -17,19 +17,15 @@ class Controller{
 	function __construct($request = null){
 		// $this->Session = new Session();
 		// $this->Form = new Form($this); 
-        $initRoute = glob(APP . "Module/*");
+        $initRoute = glob(APP . "Entity". DS ."*");
         // $initRoute = str_replace(APP ."Module/", "", $initRoute);
-        foreach($initRoute as $value) {
-			$dirModels = $value . DS . "Model/";
-			
-			$initModels = glob($dirModels . "*");
+       
 			
 			//$initModels = str_replace(".php", "", str_replace($dirModels, "", $initModels));
 			
-            if(!empty($initModels)) {
-                foreach($initModels as $value) {
-                    $this->loadModel($value);
-                }
+        if(!empty($initRoute)) {
+            foreach($initRoute as $value) {
+                $this->loadModel($value);
             }
         }
 		if($request){
@@ -77,15 +73,18 @@ class Controller{
 	**/
 	
 	function loadModel($name){
-		$initModels = explode("/",str_replace(".php", "", str_replace(str_replace("\\", "/",APP) . "Module/", "", str_replace("\\", "/",$name))));
-		$file = $initModels[2];
+		$dir = APP . "Entity" . DS;
+
+		$file = str_replace([$dir,".php"], ["",""], $name);
+
 		if(!isset($this->$file)){
-			require_once($name);
+			require_once $name;
 			$this->$file  = new $file();
 			if(isset($this->Form)){
 				$this->$file->Form = $this->Form;  
 			}
 		}
+
 
 	}
 	/**
