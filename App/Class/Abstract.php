@@ -3,17 +3,15 @@
     abstract class Ormclass {
         
         protected $connections = array(); 
-        
-        protected $conf = 'default';
-        
         protected $tableName;
         protected $db;
 
         public function __construct() {
+            $config = ($_SERVER['REMOTE_ADDR'] !== "127.0.0.1") ? "prod" : "dev";
             // Connection à la base ou récupération de la précédente connection
-            $conf = Conf::$databases[$this->conf];
-            if(isset($this->connections[$this->conf])){
-                $this->db = $this->connections[$this->conf];
+            $conf = Conf::$databases[$config];
+            if(isset($this->connections[$config])){
+                $this->db = $this->connections[$config];
                 return true; 
             }
             try{
@@ -25,7 +23,7 @@
                 );
                 $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
 
-                $this->connections[$this->conf] = $pdo; 
+                $this->connections[$config] = $pdo; 
                 $this->db = $pdo; 
             }catch(PDOException $e){
                 if(Conf::$debug >= 1){
@@ -34,7 +32,6 @@
                     die('Impossible de se connecter à la base de donnée'); 
                 }
             }
-            
             $this->build();
         }
 
