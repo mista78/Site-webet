@@ -1,5 +1,4 @@
-<div class="formWrapper">
-    <?php if($form): ?>
+<?php if($form): ?>
     <form action="<?= (isset($form['action'])) ? $form['action'] : "" ?>" method="POST" enctype="multipart/form-data">
         <?php foreach($form as $rk => $rv): ?>
         <div class="row">
@@ -22,5 +21,4 @@
             </div>
         </div>
     </form>
-    <?php endif ?>
-</div>
+<?php endif ?>

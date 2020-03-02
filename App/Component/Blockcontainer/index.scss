@@ -19,4 +19,8 @@
 .flex-bloc {
   position: relative;
   flex: 1;
+  
+  @media (min-width: 601px ) {
+    margin: 0 30px;
+  }
 }

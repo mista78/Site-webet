@@ -1,5 +1,6 @@
 <div class="main-section <?= isset($class) ? implode(" ", $class) : null  ?>">
 	<div class="BlocsContainer <?= (isset($container) && $container === true) ? "wrap" : null ?>">
+		<?php if (isset($item)): ?>
 		<?php foreach($item as $keyw => $valuew): ?>
 		<div class="flex-bloc <?= isset($valuew['class']) ? implode(" ", $valuew['class']) : null  ?>">
 			<?php //Debug($valuew) ?>
@@ -14,5 +15,6 @@
 			<?= (isset($valuew['type']) && $valuew['type'] === "carousel") ? getWidjet("carousel",$valuew) : null ?>
 		</div>
 		<?php endforeach; ?>
+		<?php endif ?>
 	</div>
 </div>

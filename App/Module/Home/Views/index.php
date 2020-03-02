@@ -4,70 +4,61 @@
     $layouts = [];
     $layouts["header"] = [];
     $layouts["content"] = [
-        [
-            "container" => true,
-            "item" => [
-                [
-                    "form" => [
-                        "form" => [
-                            [
-                                [
+        // [
+        //     "container" => true,
+        //     "item" => [
+        //         [
+        //             "form" => [
+        //                 "form" => [
+        //                     [
+        //                         [
 
-                                    "type" => "select",
-                                    "name" => "id_category",
-                                    "label" => "Cotes"
-                                ]
-                            ],
-                            [
-                                [
+        //                             "type" => "select",
+        //                             "name" => "id_category",
+        //                             "label" => "Cotes"
+        //                         ]
+        //                     ],
+        //                     [
+        //                         [
 
-                                    "type" => "select",
-                                    "name" => "id_category",
-                                    "label" => "Cotes"
-                                ]
-                            ],
-                            [
-                                [
+        //                             "type" => "select",
+        //                             "name" => "id_category",
+        //                             "label" => "Cotes"
+        //                         ]
+        //                     ],
+        //                     [
+        //                         [
 
-                                    "type" => "select",
-                                    "name" => "id_category",
-                                    "label" => "Cotes"
-                                ]
-                            ],
-                        ]
-                    ],
+        //                             "type" => "select",
+        //                             "name" => "id_category",
+        //                             "label" => "Cotes"
+        //                         ]
+        //                     ],
+        //                 ]
+        //             ],
                     
-                    "type" => "generateprono"
-                ]
-            ]   
+        //             "type" => "generateprono"
+        //         ]
+        //     ]   
+        // ],
+        [
+            
         ],
         [
             "container" => true,
             "item" => [
                 [
-                    "type" => "posthero",
-                    "text" => [
-                        "title" => "Actualité Sport Rmc"
-                    ],
+                    "type" => "carousel",
+                    "limit" => 6,
+                    "data" => $equipe["channel"]["item"]
+                ],
+                [
+                    "type" => "carousel",
                     "limit" => 6,
                     "data" => $rmc["channel"]["item"]
                 ],
             ],
         ],
-        [
-            "container" => true,
-            "item" => [
-                [
-                    "type" => "posthero",
-                    "text" => [
-                        "title" => "Actualité Sport l'Equipe"
-                    ],
-                    "limit" => 6,
-                    "data" => $equipe["channel"]["item"]
-                ]
-            ]
-        ],
-
     ];
     $header = require_once APP . "Theme/Partial/Header.php";
     $header["item"] = array_merge($header["item"],$layouts["header"]);
