@@ -54,7 +54,7 @@
                 ],
                 [
                     "type" => "carousel",
-                    "limit" => 6,
+                    "limit" => 3,
                     "data" => $rmc["channel"]["item"]
                 ],
             ],
