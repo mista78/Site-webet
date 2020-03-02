@@ -1,5 +1,6 @@
 <div class="Carousel">  
   <div class="slideshow-container">
+    <div class="slider__title"><?= isset($title) ? $title : "News" ?></div>
     <?php if(isset($data)): ?>
       <?php foreach($data as $k => $v): ?>
           <?php if($k < (@$limit ?: 6) ): ?>

@@ -36,7 +36,7 @@
             $file_dir = $file_path_elements["dirname"];
             $file_name = $file_path_elements['filename'];
             $string_sass = file_get_contents($file_dir . DS . $file_name . ".js");
-            $js .= $jz->squeeze($string_sass);
+            $js .= Minifier::minify($string_sass, array('flaggedComments' => false));;
         }
         $dir = $path1 .  "assets/js/" . "app" . time() . ".js";
         file_put_contents($dir, $js);
