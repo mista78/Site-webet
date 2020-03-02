@@ -1,14 +1,12 @@
 
-
-const createDiv = n => document.createElement(n);
-const container = document.querySelectorAll(".slideshow-container");
+const container = __(".slideshow-container");
 container.forEach(item => {
   var slideIndex = 1;
   const numSlide = createDiv("div");
   const containerDot = createDiv("div");
   const prev = createDiv("a");
   const next = createDiv("a");
-  const slides = item.getElementsByClassName("mySlides");
+  const slides =  elSelectAll(item, ".mySlides");
   containerDot.classList.add("dotContainer");
   prev.classList.add("prev");
   next.classList.add("next");
@@ -26,7 +24,7 @@ container.forEach(item => {
   item.appendChild(prev); 
   item.appendChild(next); 
   item.appendChild(numSlide); 
-  const dots = item.querySelectorAll(".dot");
+  const dots = elSelectAll(item, ".dot");
   const showSlides = n => {
     var i;
     if (n > slides.length) {slideIndex = 1}    
@@ -43,6 +41,7 @@ container.forEach(item => {
   const currentSlide = n => showSlides(slideIndex = n);
   prev.addEventListener('click', () => plusSlides(-1));
   next.addEventListener('click', () => plusSlides(1));
+  setInterval(() => plusSlides(1), 3000);
   dots.forEach((n,i) => n.addEventListener('click', () => currentSlide(i+1)));
   showSlides(slideIndex);
 });

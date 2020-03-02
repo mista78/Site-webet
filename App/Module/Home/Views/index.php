@@ -50,11 +50,13 @@
                 [
                     "type" => "carousel",
                     "limit" => 6,
+                    "title" => "News equipe",
                     "data" => $equipe["channel"]["item"]
                 ],
                 [
                     "type" => "carousel",
                     "limit" => 3,
+                    "title" => "News rmc",
                     "data" => $rmc["channel"]["item"]
                 ],
             ],

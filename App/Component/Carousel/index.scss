@@ -42,6 +42,12 @@
   // background-color: rgba(0,0,0,0.8);
 }
 
+.slider__title {
+  position: absolute;
+  top: -41px;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
 /* Caption text */
 .text {
   color: #f2f2f2;
@@ -75,7 +81,7 @@
 }
 .dotContainer {
   position: absolute;
-  top: -20px;
+  top: -31px;
   right: 0;
 }
 

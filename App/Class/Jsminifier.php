@@ -122,7 +122,7 @@ class JSqueeze
      * $parser = new JSqueeze;
      * $squeezed_js = $parser->squeeze($fat_js);
      */
-    public function squeeze($code, $singleLine = true, $keepImportantComments = true, $specialVarRx = false)
+    public function squeeze($code, $singleLine = true, $keepImportantComments = true, $specialVarRx = true)
     {
         $code = trim($code);
         if ('' === $code) {

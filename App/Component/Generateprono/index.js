@@ -4,7 +4,6 @@
     let getPari = url + "sports/"+ key + "&sport=soccer_epl&region=uk&mkt=h2h";
     let getSport = url + "odds/" + key;
 
-    const _ = (v) => document.querySelector(v);
 
     const btn = _('button')
 

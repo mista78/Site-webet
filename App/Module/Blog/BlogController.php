@@ -13,6 +13,16 @@
         }
 
         /**
+         * @Prefix(cockpit, admin)
+         * @Route(ajax, blog/ajax)
+         */
+        public function ajax() {
+            header('content-type:application/json');
+            echo json_encode(["test" => "lorem"]);
+            die();
+        }
+
+        /**
          * @Route(blog-show-:id, blog/show/id:([0-9]+))
          */
         public function show($id = null) {
