@@ -26,6 +26,7 @@
     function loadJs() {
         $path1  = ROOT . "Public" . DS ;
         $path2  = APP . "Component" . DS ;
+        $jz = new JSqueeze();
         $js     = "";
         $jsfile = glob($path1 . "assets/sass/js/*");
         $jsfile = array_merge($jsfile, glob(APP . "Component" . DS .  "*/*.js" ));
@@ -35,7 +36,7 @@
             $file_dir = $file_path_elements["dirname"];
             $file_name = $file_path_elements['filename'];
             $string_sass = file_get_contents($file_dir . DS . $file_name . ".js");
-            $js .= minimizeJavascriptSimple($string_sass);
+            $js .= $jz->squeeze($string_sass);
         }
         $dir = $path1 .  "assets/js/" . "app" . time() . ".js";
         file_put_contents($dir, $js);
@@ -66,7 +67,7 @@
 		foreach ($test as $key => $value) {
 			if (is_file($value)) {
 				$time = filemtime($value);
-				if ($time >= time() - 60 * .5  ) {
+				if ($time >= time() - 60 * 60 * 3  ) {
 					$compile[] = $value;
 				}
 			} else {

@@ -18,11 +18,6 @@ class Controller{
 		// $this->Session = new Session();
 		// $this->Form = new Form($this); 
         $initRoute = glob(APP . "Entity". DS ."*");
-        // $initRoute = str_replace(APP ."Module/", "", $initRoute);
-       
-			
-			//$initModels = str_replace(".php", "", str_replace($dirModels, "", $initModels));
-			
         if(!empty($initRoute)) {
             foreach($initRoute as $value) {
                 $this->loadModel($value);
@@ -76,13 +71,9 @@ class Controller{
 		$dir = APP . "Entity" . DS;
 
 		$file = str_replace([$dir,".php"], ["",""], $name);
-
 		if(!isset($this->$file)){
 			require_once $name;
 			$this->$file  = new $file();
-			if(isset($this->Form)){
-				$this->$file->Form = $this->Form;  
-			}
 		}
 
 
