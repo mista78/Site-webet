@@ -18,7 +18,7 @@ const ajax 		=  async (url, dataObject, cb) => {
 		xhr.onreadystatechange = data => cb(data);
 		xhr.open(method, url, true);
 		xhr.setRequestHeader('X-Requested-With', 'xmlhttprequest');
-		xhr.send(data);
+		xhr.send(dataObject.data);
 	}
 }
 let data = {method: "POST"};

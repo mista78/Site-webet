@@ -4,7 +4,7 @@
 function Upload($options = [])
 {
     $options['index']  = isset($options['index']) ? $options['index'] : 'file';
-    $options['path']   = isset($options['path']) ? $options['path'] . '/' : 'Public/img/';
+    $options['path']   = isset($options['path']) ? $options['path'] . '/' : 'Public/assets/img/';
     $options['name']   = isset($options['name']) ? $options['name'] : null;
     if (!file_exists(ROOT . $options['path'])) {
         mkdir(ROOT . $options['path']);

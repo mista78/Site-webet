@@ -16,7 +16,7 @@
         }
         
         /**
-         * @Route(posts, cockpit/home/index)
+         * @Route(post, cockpit/home/index)
          */
         public function admin_index($id = null) {
             

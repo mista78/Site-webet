@@ -44,7 +44,7 @@
             foreach ($routes as $k => $v) {
                 Router::connect($k,$v);
             }
-            
+            //Debug($routes);
             Router::parse($this->request->url,$this->request);
             Router::$request  = $this->request;
             

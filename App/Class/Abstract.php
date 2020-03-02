@@ -62,7 +62,7 @@
             } else {
             $sqlQuery = 'INSERT INTO '.$tableName.' SET '.$setClause.'';
             }
-            
+            //Debug($sqlQuery);die;
             $result = $this->db->query($sqlQuery);
             return $result;
         }
