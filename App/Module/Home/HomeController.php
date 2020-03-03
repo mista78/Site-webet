@@ -11,6 +11,10 @@
             // $test = Readrss("https://www.sports.fr/feed");
             $rmc = Readrss("https://rmcsport.bfmtv.com/rss/info/flux-rss/flux-toutes-les-actualites/");
             $data = $this->Blog->find(["order" => "id DESC"]);
+
+            $sport = $this->Sport->find();
+  
+            $this->set("sport",$sport);
             $this->set("rmc",$rmc);
             $this->set("equipe",$equipe);
         }

@@ -1,6 +1,6 @@
 <?php 
 
-
+    
     $layouts = [];
     $layouts["header"] = [];
     $layouts["content"] = [
@@ -13,9 +13,9 @@
                             [
                                 [
 
-                                    "type" => "select",
-                                    "name" => "id_category",
-                                    "label" => "Cotes"
+                                    "type" => "datadb",
+                                    "data" => $sport,
+                                    "options" => ["type" => "checkbox"],
                                 ]
                             ],
                             [
