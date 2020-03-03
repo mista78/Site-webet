@@ -13,15 +13,6 @@
                             [
                                 [
 
-                                    "type" => "datadb",
-                                    "data" => $sport,
-                                    "name" => "sport",
-                                    "options" => ["type" => "checkbox"],
-                                ]
-                            ],
-                            [
-                                [
-
                                     "type" => "select",
                                     "name" => "id_category",
                                     "label" => "Cotes"
@@ -37,7 +28,7 @@
                             ],
                         ]
                     ],
-                    
+                    "data" => $sport,
                     "type" => "generateprono"
                 ]
             ]   
