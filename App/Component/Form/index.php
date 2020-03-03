@@ -7,7 +7,7 @@
                 
                 <?php if(isset($vi['type']) && $vi['type'] === "datadb"): ?>
                     <?php foreach ($vi['data'] as $vo) : ?> 
-                        <?= (isset($vo['name'])) ? input($vo['id'], $vo['name'] , $vi['options']) : null ?>
+                        <?= (isset($vo['name'])) ? input($vi['name'], $vo['name'] , $vi['options']) : null ?>
                     <?php endforeach ?>
                 <?php endif ?>
                     <?php 
