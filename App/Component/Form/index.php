@@ -7,10 +7,11 @@
                 
                 <?php if(isset($vi['type']) && $vi['type'] === "datadb"): ?>
                     <?php foreach ($vi['data'] as $vo) : ?> 
-                        <?= (isset($vo['name'])) ? input($vi['name'], $vo['name'] , $vi['options']) : null ?>
+
+                        <?= (isset($vi['name'])) ? input($vi['name'], $vo['name'] , $vi['options']) : null ?>
                     <?php endforeach ?>
                 <?php endif ?>
-                    <?php 
+                    <?php   
                         $vi['label'] = isset($vi['label']) ? $vi['label'] : null;   
                         $vi['options'] = isset($vi['options']) ? $vi['options'] : [];   
                     ?>

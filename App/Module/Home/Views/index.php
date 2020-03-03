@@ -15,6 +15,7 @@
 
                                     "type" => "datadb",
                                     "data" => $sport,
+                                    "name" => "sport",
                                     "options" => ["type" => "checkbox"],
                                 ]
                             ],
