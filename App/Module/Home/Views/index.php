@@ -1,6 +1,6 @@
 <?php 
 
-
+    
     $layouts = [];
     $layouts["header"] = [];
     $layouts["content"] = [
@@ -26,17 +26,9 @@
                                     "label" => "Cotes"
                                 ]
                             ],
-                            [
-                                [
-
-                                    "type" => "select",
-                                    "name" => "id_category",
-                                    "label" => "Cotes"
-                                ]
-                            ],
                         ]
                     ],
-                    
+                    "data" => $sport,
                     "type" => "generateprono"
                 ]
             ]   

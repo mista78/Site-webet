@@ -1,13 +1,8 @@
 (function(){
-    let key = "?apiKey=2691616c84fe3c9072e2b1a1b205983d";
-    let url = "https://api.the-odds-api.com/v3/";
-    let getPari = url + "sports/"+ key + "&sport=soccer_epl&region=uk&mkt=h2h";
-    let getSport = url + "odds/" + key;
-
-
-    const btn = _('button')
-
-    //btn.querySelector('click', ajax())
+    let data = {method: "POST"};
+    ajax("ajax", data, (data) => {
+        Debug(data);
+    });
 
 
 })();
