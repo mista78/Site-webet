@@ -15,20 +15,25 @@
 
                                     "type" => "select",
                                     "name" => "id_category",
-                                    "label" => "Cotes"
+                                    "label" => "Cotes", 
+                                    'options' => ['options' => ['1' => '1','2' => '2','3' => '3','4' => '4','5' => '5']]
                                 ]
                             ],
+                            DataTocomponent($sport, [
+                                "type" => "input", 
+                                "name" => "sport", 
+                                'options' => ['type' => 'radio']
+                            ]),
                             [
                                 [
-
                                     "type" => "select",
                                     "name" => "id_category",
-                                    "label" => "Cotes"
+                                    "label" => "Nombre de prono",
+                                    'options' => ['options' => ['1' => '1','2' => '2','3' => '3','4' => '4','5' => '5']]
                                 ]
                             ],
                         ]
                     ],
-                    "data" => $sport,
                     "type" => "generateprono"
                 ]
             ]   

@@ -1,13 +1,11 @@
 <?php
-    function DataTocomponent($data,$option = []){
+    function DataTocomponent($data,$conf){
         $tab = [];
+
         foreach($data as $v){
-            array_push($tab, [
-                "type" => "input", 
-                "name" => "sport", 
-                'label' => $v['name'],
-                'options' => ['type' => 'radio']
-                ]);
-        }
+            $conf['label'] = $v->name;    
+            array_push($tab, $conf);
+        }   
+
         return $tab;
     }
