@@ -6,8 +6,9 @@
             <?php foreach($rv as $ki => $vi): ?>
                     <?php   
                         $vi['label'] = isset($vi['label']) ? $vi['label'] : null;   
-                        $vi['options'] = isset($vi['options']) ? $vi['options'] : [];   
+                        $vi['options'] = isset($vi['options']) ? $vi['options'] : []; 
                     ?>
+                  
             <div class="<?= isset($vi['class']) ? implode(" ", $vi['class']) : "col-md-12"  ?>">
                 <?= (isset($vi['type']) && $vi['type'] === "input") ? input($vi['name'], $vi['label'], $vi['options']) : null ?>
                 <?= (isset($vi['type']) && $vi['type'] === "textarea") ? textarea($vi['name'], $vi['label'], $vi['options']) : null ?>

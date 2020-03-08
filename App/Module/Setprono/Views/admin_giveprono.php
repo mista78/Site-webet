@@ -26,7 +26,7 @@ $layouts["content"] = [
                             "class" => ["col-md-8"],
                             "type" => "input",
                             "name" =>  "",
-                            "label" => "sport"
+                            "label" => "sport   "
                         ]
                     ]
                 ]
