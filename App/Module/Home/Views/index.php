@@ -8,11 +8,12 @@
             "container" => true,
             "item" => [
                 [
+                    
                     "form" => [
                         "form" => [
+                            "attr" => ["id" => "get-prono"],
                             [
                                 [
-
                                     "type" => "select",
                                     "name" => "id_category",
                                     "label" => "Cotes", 
@@ -20,9 +21,8 @@
                                 ]
                             ],
                             DataTocomponent($sport, [
-                                "type" => "input", 
-                                "name" => "sport", 
-                                'options' => ['type' => 'radio']
+                                "type" => "checkbox", 
+                                "name" => "sport"
                             ]),
                             [
                                 [

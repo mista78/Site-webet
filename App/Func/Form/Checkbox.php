@@ -1,7 +1,8 @@
 <?php
 
     function checkbox($name, $label = null, $options = []) {
-        $text = '<input type="hidden" name="'. $name .'" value="0">';
-        $text.= '<input type="checkbox" name="'. $name .'" value="1"> online';
+        //$text = '<input type="hidden" name="'. $name .'" value="'.$options['value'].'">';
+        $text = '<label>'.$options['value'].'</label>';
+        $text.= '<input type="checkbox" name="'. $name .'" value="'.$options['value'].'">';
         return $text;
     }
