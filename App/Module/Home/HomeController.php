@@ -42,7 +42,7 @@
          */
         public function admin_getprono($id = null) {
             
-            Debug($_POST);
+            Debug($this->request->data);
             die();          
         }
 

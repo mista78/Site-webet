@@ -1,5 +1,5 @@
 <?php if($form): ?>
-    <form action="<?= (isset($form['action'])) ? $form['action'] : "" ?>" <?= (isset($form['attr'])) ? attribute($form['attr']) : null ?>method="POST" enctype="multipart/form-data">
+    <form action="<?= (isset($form['action'])) ? $form['action'] : "" ?>" <?= (isset($form['attr'])) ? attribute($form['attr']) : null ?>method="POST"  enctype="multipart/form-data">
         <?php foreach($form as $rk => $rv): ?>
             
         <div class="row">
