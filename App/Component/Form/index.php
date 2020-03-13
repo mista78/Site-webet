@@ -1,5 +1,5 @@
 <?php if($form): ?>
-    <form action="<?= (isset($form['action'])) ? $form['action'] : "" ?>" method="POST" enctype="multipart/form-data">
+    <form action="<?= (isset($form['action'])) ? $form['action'] : "" ?>" <?= (isset($form['attr'])) ? attribute($form['attr']) : null ?>method="POST"  enctype="multipart/form-data">
         <?php foreach($form as $rk => $rv): ?>
             
         <div class="row">
@@ -13,6 +13,7 @@
                 <?= (isset($vi['type']) && $vi['type'] === "input") ? input($vi['name'], $vi['label'], $vi['options']) : null ?>
                 <?= (isset($vi['type']) && $vi['type'] === "textarea") ? textarea($vi['name'], $vi['label'], $vi['options']) : null ?>
                 <?= (isset($vi['type']) && $vi['type'] === "select") ? select($vi['name'], $vi['label'], $vi['options']) : null ?>
+                <?= (isset($vi['type']) && $vi['type'] === "checkbox") ? checkbox($vi['name'], $vi['label'], $vi['options']) : null ?>
             </div>
             <?php endforeach ?>
         </div>

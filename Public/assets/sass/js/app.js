@@ -8,6 +8,7 @@ const [local]		= window.location.pathname.split("/").filter(n => n !== "");
 const ajax 		=  async (url, dataObject, cb) => {
 	url = window.location.origin + "/" + local + '/' + url;
 	if (window.fetch) {
+		console.log(dataObject)
 		const response = await fetch(url,dataObject);
 		const result  = await response.json();
 		cb(result);
