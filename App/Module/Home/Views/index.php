@@ -13,6 +13,7 @@
         //                     [
         //                         [
 
+<<<<<<< HEAD
         //                             "type" => "select",
         //                             "name" => "id_category",
         //                             "label" => "Cotes"
@@ -33,6 +34,33 @@
         //         ]
         //     ]   
         // ],
+=======
+                                    "type" => "select",
+                                    "name" => "id_category",
+                                    "label" => "Cotes", 
+                                    'options' => ['options' => ['1' => '1','2' => '2','3' => '3','4' => '4','5' => '5']]
+                                ]
+                            ],
+                            DataTocomponent($sport, [
+                                "type" => "input", 
+                                "name" => "sport", 
+                                'options' => ['type' => 'radio']
+                            ]),
+                            [
+                                [
+                                    "type" => "select",
+                                    "name" => "id_category",
+                                    "label" => "Nombre de prono",
+                                    'options' => ['options' => ['1' => '1','2' => '2','3' => '3','4' => '4','5' => '5']]
+                                ]
+                            ],
+                        ]
+                    ],
+                    "type" => "generateprono"
+                ]
+            ]   
+        ],
+>>>>>>> b9dc0bbd2bbc16798da077fb971f73ce6bd00e7a
         [
             
         ],
