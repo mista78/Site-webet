@@ -11,11 +11,10 @@
             //pronodata.append('sport',_('[name="sport"]').value)
             //pronodata.append('nb_prono', _('[name="nb_prono"]').value)
             const entries = [...pronodata]
-            console.log("entries",entries)
             let data = {method: "POST", body: pronodata};
-            console.log(data);
-             ajax("cockpit/home/getprono", pronodata, (data) => {
+             ajax("cockpit/home/getprono", {method: "POST", body: pronodata}, (data) => {
                  Debug("data",data);
+                 _('.generateContent').innerHTML = data
              });
     });
 })();

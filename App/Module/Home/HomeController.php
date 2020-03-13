@@ -38,10 +38,16 @@
         }
 
         /**
-         * @Route(post, cockpit/home/getprono)
+         * @Route(post, home/getprono)
          */
-        public function admin_getprono($id = null) {
-            
+        public function getprono($id = null) {
+            $data = $this->request->data;
+            $enityProno = new Pronostics();
+            $enityProno.find([
+                'table' => 'pronostics',
+                'conditions' => ['sport' => $data->sport],
+                'limit' => $data->nb_prono
+                ]);
             Debug($this->request->data);
             die();          
         }
