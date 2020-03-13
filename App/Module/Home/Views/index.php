@@ -4,35 +4,35 @@
     $layouts = [];
     $layouts["header"] = [];
     $layouts["content"] = [
-        [
-            "container" => true,
-            "item" => [
-                [
-                    "form" => [
-                        "form" => [
-                            [
-                                [
+        // [
+        //     "container" => true,
+        //     "item" => [
+        //         [
+        //             "form" => [
+        //                 "form" => [
+        //                     [
+        //                         [
 
-                                    "type" => "select",
-                                    "name" => "id_category",
-                                    "label" => "Cotes"
-                                ]
-                            ],
-                            [
-                                [
+        //                             "type" => "select",
+        //                             "name" => "id_category",
+        //                             "label" => "Cotes"
+        //                         ]
+        //                     ],
+        //                     [
+        //                         [
 
-                                    "type" => "select",
-                                    "name" => "id_category",
-                                    "label" => "Cotes"
-                                ]
-                            ],
-                        ]
-                    ],
-                    "data" => $sport,
-                    "type" => "generateprono"
-                ]
-            ]   
-        ],
+        //                             "type" => "select",
+        //                             "name" => "id_category",
+        //                             "label" => "Cotes"
+        //                         ]
+        //                     ],
+        //                 ]
+        //             ],
+        //             "data" => $sport,
+        //             "type" => "generateprono"
+        //         ]
+        //     ]   
+        // ],
         [
             
         ],
