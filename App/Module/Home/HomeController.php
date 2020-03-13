@@ -37,4 +37,13 @@
             
         }
 
+        /**
+         * @Route(post, cockpit/home/getprono)
+         */
+        public function admin_getprono($id = null) {
+            
+            Debug($this->request->data);
+            die();          
+        }
+
     }

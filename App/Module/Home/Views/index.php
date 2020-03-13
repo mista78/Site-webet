@@ -8,33 +8,32 @@
             "container" => true,
             "item" => [
                 [
+                    "type" => "generateprono",
                     "form" => [
                         "form" => [
+                            "attr" => ["id" => "form","form"],
                             [
                                 [
-
                                     "type" => "select",
-                                    "name" => "id_category",
+                                    "name" => "cote",
                                     "label" => "Cotes", 
                                     'options' => ['options' => ['1' => '1','2' => '2','3' => '3','4' => '4','5' => '5']]
                                 ]
                             ],
                             DataTocomponent($sport, [
-                                "type" => "input", 
-                                "name" => "sport", 
-                                'options' => ['type' => 'radio']
+                                "type" => "checkbox", 
+                                "name" => "sport"
                             ]),
                             [
                                 [
                                     "type" => "select",
-                                    "name" => "id_category",
+                                    "name" => "nb_prono",
                                     "label" => "Nombre de prono",
                                     'options' => ['options' => ['1' => '1','2' => '2','3' => '3','4' => '4','5' => '5']]
                                 ]
                             ],
                         ]
                     ],
-                    "type" => "generateprono"
                 ]
             ]   
         ],
@@ -58,6 +57,7 @@
                 ],
             ],
         ],
+        
     ];
     $header = require_once APP . "Theme/Partial/Header.php";
     $header["item"] = array_merge($header["item"],$layouts["header"]);
