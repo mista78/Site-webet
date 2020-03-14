@@ -11,6 +11,7 @@ const ajax 		=  async (url, dataObject, cb) => {
 		console.log(dataObject)
 		const response = await fetch(url,dataObject);
 		const result  = await response.json();
+		console.log(response)
 		cb(result);
 	    // exécuter ma requête fetch ici
 	} else {

@@ -8,3 +8,11 @@
         }   
         return $tab;
     }
+
+    function DataToOption($data){
+        $tab = [];
+        foreach($data as $v){
+            $tab[$v->id] = $v->name;
+        }   
+        return $tab;
+    }

@@ -38,18 +38,24 @@
         }
 
         /**
-         * @Route(post, home/getprono)
+         * @Route(getprono, home/getprono)
          */
-        public function getprono($id = null) {
+        public function getprono() {
+            header('content-type:application/json');
             $data = $this->request->data;
             $enityProno = new Pronostics();
-            $enityProno.find([
-                'table' => 'pronostics',
-                'conditions' => ['sport' => $data->sport],
+            $data = $enityProno->find([
+                'join' => ['sport' => 'pronostics.idSport =  sport.id'],
+                'conditions' => [
+                    'sport.name' => $data->sport,
+                    'pronostics.cote' => $data->cote
+                ],
                 'limit' => $data->nb_prono
                 ]);
-            Debug($this->request->data);
-            die();          
+                // c'est quoi come id qui fonctione ? 
+            echo json_encode($data);  
+            $this->rendered = true; 
+            die(); 
         }
 
     }

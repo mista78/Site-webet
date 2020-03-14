@@ -13,20 +13,21 @@ $layouts["content"] = [
                         [
                             "class" => ["col-md-4"],
                             "type" => "input",
-                            "name" =>  "name",
+                            "name" =>  "cote",
                             "label" => "cote équipe"
                         ],
                         [
                             "class" => ["col-md-8"],
                             "type" => "input",
-                            "name" =>  "",
+                            "name" =>  "name",
                             "label" => "nom équipe"
                         ],
                         [
                             "class" => ["col-md-8"],
-                            "type" => "input",
-                            "name" =>  "",
-                            "label" => "sport   "
+                            "type" => "select",
+                            "name" =>  "idSport",
+                            "label" => "sport   ",
+                            "options" => ['options' => DataToOption($sport)]
                         ]
                     ]
                 ]
