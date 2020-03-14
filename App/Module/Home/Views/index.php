@@ -4,39 +4,6 @@
     $layouts = [];
     $layouts["header"] = [];
     $layouts["content"] = [
-<<<<<<< HEAD
-        // [
-        //     "container" => true,
-        //     "item" => [
-        //         [
-        //             "form" => [
-        //                 "form" => [
-        //                     [
-        //                         [
-
-<<<<<<< HEAD
-        //                             "type" => "select",
-        //                             "name" => "id_category",
-        //                             "label" => "Cotes"
-        //                         ]
-        //                     ],
-        //                     [
-        //                         [
-
-        //                             "type" => "select",
-        //                             "name" => "id_category",
-        //                             "label" => "Cotes"
-        //                         ]
-        //                     ],
-        //                 ]
-        //             ],
-        //             "data" => $sport,
-        //             "type" => "generateprono"
-        //         ]
-        //     ]   
-        // ],
-=======
-=======
         [
             "container" => true,
             "item" => [
@@ -44,10 +11,8 @@
                     "type" => "generateprono",
                     "form" => [
                         "form" => [
-                            "attr" => ["id" => "form","form"],
                             [
                                 [
->>>>>>> 6ef41da22afa1db88e07762f36358fc1791f2604
                                     "type" => "select",
                                     "name" => "cote",
                                     "label" => "Cotes", 
@@ -71,7 +36,6 @@
                 ]
             ]   
         ],
->>>>>>> b9dc0bbd2bbc16798da077fb971f73ce6bd00e7a
         [
             
         ],
