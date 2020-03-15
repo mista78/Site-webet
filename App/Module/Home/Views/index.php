@@ -21,7 +21,7 @@
                             ],
                             DataTocomponent($sport, [
                                 "type" => "checkbox", 
-                                "name" => "sport"
+                                "name" => "sport",
                             ]),
                             [
                                 [

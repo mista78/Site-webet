@@ -12,9 +12,14 @@
         public $idSport;
 
         /**
+         * float
+         */
+        public $cote;
+
+        /**
          * varchar(255)
          */
-        public $prono;
+        public $name;
 
         /**
          * date
