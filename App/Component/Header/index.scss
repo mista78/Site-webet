@@ -3,71 +3,97 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif);
 
+%clear {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
 
 p {
 	text-align: center;
 }
 
 nav {
-	background-color: #34495e;
-  margin-top: 0;
+	background-color: #057950;
+	margin-top: 0;
 	position: relative;
 	z-index: 1000;
 }
 
 nav ul {
 	padding: 0;
-  margin: 0;
+	margin: 0;
 	list-style: none;
 	position: relative;
-	}
-	
-nav ul li {
-	display:inline-block;
-	background-color: #34495e;
-	}
-
-nav a {
-	display:block;
-	padding:0 10px;	
-	color:#FFF;
-	font-size:20px;
-	line-height: 60px;
-	text-decoration:none;
+	@extend %clear;
 }
 
-nav a:hover { 
-	background-color: rgba(0,0,0, .2); 
+nav ul li {
+	position: relative;
+	float: left;
+	// display:inline-block;
+	transition: .5s;
+	&:hover {
+		&:after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 5px;
+			background-color: #fc0;
+		}
+	}
+}
+
+nav a {
+	display: block;
+	padding: 0 10px;
+	color: #FFF;
+	font-size: 20px;
+	line-height: 60px;
+	text-decoration: none;
+}
+
+nav a:hover {
+	background-color: rgba(0, 0, 0, .2);
 }
 
 /* Hide Dropdowns by Default */
 nav ul ul {
 	display: none;
-	position: absolute; 
-	top: 60px; /* the height of the main nav */
+	position: absolute;
+	top: 60px;
+	/* the height of the main nav */
 }
-	
+
 /* Display Dropdowns on Hover */
-nav ul li:hover > ul {
-	display:inherit;
+nav ul li:hover>ul {
+	display: inherit;
 }
-	
+
 /* Fisrt Tier Dropdown */
 nav ul ul li {
-	width:170px;
-	float:none;
-	display:list-item;
+	width: 170px;
+	float: none;
+	display: list-item;
 	position: relative;
 }
 
 /* Second, Third and more Tiers	*/
 nav ul ul ul li {
 	position: relative;
-	top:-60px; 
-	left:170px;
+	top: -60px;
+	left: 170px;
 }
 
-	
+
 /* Change this in order to change the Dropdown symbol */
-li > a:after { content:  ' +'; }
-li > a:only-child:after { content: ''; }
+li>a:after {
+	content: ' +';
+}
+
+li>a:only-child:after {
+	content: '';
+}

@@ -1,5 +1,5 @@
 <div class="main-section <?= isset($class) ? implode(" ", $class) : null  ?>">
-	<div class="BlocsContainer <?= (isset($container) && $container === true) ? "wrap" : null ?>">
+	<div class="BlocsContainer <?= (isset($container) && $container === true) ? "wrap" : null ?>" <?= (isset($attribute)) ? attribute($attribute) : null ?>>
 		<?php if (isset($item)): ?>
 		<?php foreach($item as $keyw => $valuew): ?>
 		<div class="flex-bloc <?= isset($valuew['class']) ? implode(" ", $valuew['class']) : null  ?>">

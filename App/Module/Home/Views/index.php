@@ -11,7 +11,6 @@
                     "type" => "generateprono",
                     "form" => [
                         "form" => [
-                            "attr" => ["id" => "form","form"],
                             [
                                 [
                                     "type" => "select",
